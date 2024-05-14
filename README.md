@@ -1,25 +1,28 @@
-## Introdução e Objetivo Geral
-- O objetivo deste projeto consistiu em praticar técnicas e princípios de programação Object-Oriented lecionados na disciplina de OOP.
-- O trabalho centrou-se numa aplicação que é um gestor e reprodutor de músicas em suporte digital. A aplicação
-foi desenvolvida incrementalmente e iterativamente. O primeiro incremento focou-se em funcionalidades
-básicas e músicas no formato mp3, considerando um conjunto básico de casos de uso em torno
-de bibliotecas de músicas e de playlists. Sucintamente, a aplicação permite carregar músicas para uma biblioteca e a partir da biblioteca, pesquisar, selecionar e pôr a tocar músicas individuais. Existem várias smart playlists (listas
-de músicas geridas de forma automática) pré-definidas mas é também possível criar playlists manualmente. É possível gerir as
-músicas contidas numa playlist manual e pôr a tocar as músicas de uma qualquer playlist.
+## Introduction and Main Goal
+- The project goal was to practice Object-Oriented Programming principles taught in this course, such as Design Patterns and best practices.
+- Our main focus was implementing a digital music manager and player, containing features such as:
+	- Supporting songs in mp3 format, considering a basic set of use cases around music libraries and playlists
+	- Allowing to upload songs to a library and from a library
+ 	- Being able to search, select and play individual songs from a library
+  	- Creating smart playlists (lists of automatically managed songs) pre-defined but also creating playlists manually
+  	- Managing the songs contained in a manual playlist and play songs from any playlist.
 
-## Organização geral da solução de desenho fornecida
-- **ui:** classes responsáveis exclusivamente pela interface da aplicação
-- **domain:** classes cuja responsabilidade se prende apenas com o domínio da aplicação
-- **services:** classes cuja responsabilidade se prende com a utilização de serviços externos à aplicação
-- **util:** classes que foram concebidas especificamente para a aplicação, mas potencialmente reutilizáveis noutros contextos
+## Description for the Implementation
+### Packages General Organization
+- **ui:** classes responsible exclusively for the application interface
+- **domain:** classes whose responsibility relates only to the application domain
+- **services:** classes whose responsibility relates to the use of external services
+- **util:** classes that were designed specifically for the application, but potentially reusable in other contexts
 
-- Adicionalmente, tomámos ainda algumas decisões de implementação mais específicas, no que toca à arquitetura da aplicação concebida:
-	- De modo a facilitar as interações entre o leitor de música e as respetivas classes que contém a implementação das operações sobre as músicas, decidimos fazer a comunicação direta com o Player, tanto na Playlist como na MusicLibrary. Deste modo cada um dos objetos estão independente na forma como cada respetivo controlador invoca os seus métodos para tocar as músicas, nomeadamente o método 'play()'), o que nos permitiu resolver alguns conflitos durante o desenvolvimento do projeto.
-	- Em relação à classe `AbsPlaylist`, utilizámos a **Factory** do `Player` para obter a sua instância, implementar as operações realizadas sobre as músicas e realizar a alteração de propriedades face à mudança de estados do `Player` (consoante o contexto); colocámos a `MusicLibrary` como **Listener** do `Player`.
+### Design Decisions
+- Additionally, we also made some specific implementation decisions, regarding the architecture providedof for the application:
+	- In order to facilitate interactions between the music player and the respective classes that contain the implementation of operations on songs, we decided to communicate directly with the Player, both in the Playlist and in the MusicLibrary. In this way, each of the objects are independent in the way each respective controller invokes its methods to play the songs, namely the 'play()' method), which allowed us to resolve some conflicts during the development of the project.
+	- Regarding the `AbsPlaylist` class, we used the `Player` **Factory** to obtain its instance, implement the operations performed on the songs and change properties in response to the change in the `Player` states (depending on the context); We placed `MusicLibrary` as **Listener** for `Player`.
 ---
-### Notas adicionais
-- Relativamente à leitura dos meta-dados das músicas a partir de ficheiros mp3, recorremos à utilização da seguinte biblioteca open source https://github.com/mpatric/mp3agic.
-- Uma vez que o desenho da interface da aplicação não é o foco desta disciplina, foi nos fornecido pelos docentes uma implementação rudimentar de uma interface gráfica (implementado com o swt do Eclipse).
-- Adicionalmente, implementámos também testes unitários JUnit para as classes `ArrayQListWithSelection` e `Song`.
-- Todas as classes foram devidamente documentadas com JavaDoc.
+#### Notas adicionais
+- For reading songs metadata from mp3 files, we used the following open source: library https://github.com/mpatric/mp3agic
+- Since the design of the application interface is not the focus of this course, the teachers provided us with a rudimentary implementation of a graphical interface (implemented with Eclipse swt).
+- Additionally, we also implemented JUnit unit tests for the `ArrayQListWithSelection` and `Song` classes.
+- All classes were properly documented with JavaDoc.
+- Languages/Technologies used: Java and JUnit
 
