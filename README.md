@@ -15,11 +15,11 @@
 - **util:** classes that were designed specifically for the application, but potentially reusable in other contexts
 
 ### Design Decisions
-- Additionally, we also made some specific implementation decisions, regarding the architecture providedof for the application:
-	- In order to facilitate interactions between the music player and the respective classes that contain the implementation of operations on songs, we decided to communicate directly with the Player, both in the Playlist and in the MusicLibrary. In this way, each of the objects are independent in the way each respective controller invokes its methods to play the songs, namely the 'play()' method), which allowed us to resolve some conflicts during the development of the project.
-	- Regarding the `AbsPlaylist` class, we used the `Player` **Factory** to obtain its instance, implement the operations performed on the songs and change properties in response to the change in the `Player` states (depending on the context); We placed `MusicLibrary` as **Listener** for `Player`.
+- Additionally, we also made some specific implementation decisions, regarding the architecture provided for the application:
+	- In order to facilitate interactions between the music player and the respective classes responsible for the operations on songs, we decided to communicate directly with the Player, both in `Playlist` and in `MusicLibrary`. Now, each of the objects are independent in the way that each respective controller invokes its methods to play the songs, namely the `play()` method, which allowed us to resolve some conflicts during the development of the project.
+	- Regarding the `AbsPlaylist` class, we used the `Player` **Factory** to obtain its instance but also to implement the operations performed on the songs and change properties in response to the `Player` states; We placed `MusicLibrary` as **Listener** for `Player`.
 ---
-#### Notas adicionais
+#### Additional Notes
 - For reading songs metadata from mp3 files, we used the following open source: library https://github.com/mpatric/mp3agic
 - Since the design of the application interface is not the focus of this course, the teachers provided us with a rudimentary implementation of a graphical interface (implemented with Eclipse swt).
 - Additionally, we also implemented JUnit unit tests for the `ArrayQListWithSelection` and `Song` classes.
